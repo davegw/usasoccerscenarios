@@ -1,1 +1,1 @@
-$('body').html(new AppView({model: new app()}).render())
+$('body').append(new AppView({model: new app()}).render())

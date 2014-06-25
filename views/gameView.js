@@ -1,6 +1,6 @@
 var GameView = Backbone.View.extend({
 
-	className: "col-md-4",
+	className: "col-sm-4",
 
 	template:    '<br><br>',
 

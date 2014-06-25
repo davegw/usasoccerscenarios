@@ -1,7 +1,10 @@
 body {
 	background-image:url('../images/woldCup.jpg');
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
+}
+.appView {
+	position: relative;
 }
 .text {
 	color:white;
@@ -14,6 +17,8 @@ h1.text-center.text {
 
 .titleText {
 	font-weight: bold;
+	color:white;
+		text-shadow: 2px 2px black;
 	margin: 50px 0 20px 0;
 	font-size: 50px;
 }
@@ -45,4 +50,12 @@ select.center-block {
 }
 img.center-block {
 	margin-top: 10px;
+}
+.overlay {
+	top: 0;
+	left: 0;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0,0,0,.4);
 }
