@@ -1,0 +1,24 @@
+body {
+	background-image:url('http://wallpaperfocus.com/wp-content/uploads/2013/12/world-cup-2014-ball-brazuca-design.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.text {
+	color:white;
+	text-shadow: 2px 2px black;
+	font-size: 28px;
+}
+
+.titleText {
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+.winners {
+	padding-bottom: 35px;
+}
+
+.row {
+	margin-top: 55px;
+}
+//check out chosen
