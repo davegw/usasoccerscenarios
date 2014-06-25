@@ -1,6 +1,14 @@
 var app = Backbone.Model.extend({
   initialize: function(game1, game2) {
-    this.set('usGermany', new Game(game1))
-    this.set('portGhana', new Game(game2))
+    this.set('usGermany', new Games(game1));
+    this.set('portGhana', new Games(game2));
+
+    this.get('usGermany').on('scoreUpdate', function() {
+      this.get('usGermany').checkGameOver();
+    }, this);
+
+    this.get('portGhana').on('scoreUpdate', function() {
+      this.get('portGhana').checkGameOver();
+    }, this);
   }
 });

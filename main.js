@@ -23,7 +23,7 @@ var portGhana = [{
   goalTotal: 2,
   victories: {},
   flagURL: '',
-  curScore: 0,
+  curScore: 0
 }, 
 { country: 'Ghana',
   points: 1,
