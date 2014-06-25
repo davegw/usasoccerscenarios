@@ -8,8 +8,9 @@ var Team = Backbone.Model.extend({
 
   // Trigger on score change.
   updateScore: function(score) {
+    score = parseInt(score);
     this.set('curScore', score);
-    this.trigger('scoreUpdate',this)
+    this.trigger('scoreUpdate', this)
   }
 
 });

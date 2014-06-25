@@ -53,8 +53,10 @@ var app = Backbone.Model.extend({
     var usGermany = this.get('usGermany');
     var portGhana = this.get('portGhana');
     if (usGermany.checkGameOver() && portGhana.checkGameOver()) {
+      console.log('start: ',this.get('usGermany'));
       usGermany.calcWinner();
       portGhana.calcWinner();
+      console.log('end: ',this.get('usGermany'));
       this.updateStandings();
     }
   },

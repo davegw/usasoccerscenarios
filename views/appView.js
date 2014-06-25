@@ -23,7 +23,7 @@ var AppView = Backbone.View.extend({
 			var winner1 = winners[0];
 			if (winners[1].length !==2){
 				var winner2 = winners[1];
-				console.log(winner2);
+				// console.log(winner2);
 				this.$el.find('.winner1').text(winner1.get('country'));
 				this.$el.find('.winner2').text(winner2.get('country'));
 				this.$el.find('.imgWinner1').attr({

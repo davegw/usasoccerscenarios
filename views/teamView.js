@@ -7,6 +7,7 @@ var TeamView = Backbone.View.extend({
 	events: {
 		'change .wiw':function(){
 			var score = this.$('select option:selected').text();
+			console.log(score);
 			this.model.updateScore(score);
 		}
 	},
