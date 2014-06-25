@@ -6,7 +6,7 @@ var app = Backbone.Model.extend({
                 goalDiff: 1,
                 goalTotal: 4,
                 victories: ['Ghana'],
-                flagURL: '',
+                flagURL: 'http://www.flags.net/images/largeflags/UNST0001.GIF',
                 curScore: undefined }, 
 
         GER = { country: 'Germany',
@@ -14,7 +14,7 @@ var app = Backbone.Model.extend({
                 goalDiff: 4,
                 goalTotal: 6,
                 victories: ['Portugal'],
-                flagURL: '',
+                flagURL: 'http://www.flags.net/images/largeflags/GERM0001.GIF',
                 curScore: undefined },
 
         POR = { country: 'Portugal',
@@ -22,7 +22,7 @@ var app = Backbone.Model.extend({
                 goalDiff: -4,
                 goalTotal: 2,
                 victories: [],
-                flagURL: '',
+                flagURL: 'http://www.flags.net/images/largeflags/PORT0001.GIF',
                 curScore: undefined },
 
         GHA = { country: 'Ghana',
@@ -30,7 +30,7 @@ var app = Backbone.Model.extend({
                 goalDiff: -1,
                 goalTotal: 3,
                 victories: [],
-                flagURL: '',
+                flagURL: 'http://www.flags.net/images/largeflags/GHAN0001.GIF',
                 curScore: undefined };
 
     // Create games.
