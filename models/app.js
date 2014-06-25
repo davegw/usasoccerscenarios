@@ -75,11 +75,11 @@ var app = Backbone.Model.extend({
     var tiebreaker1;
     var tiebreaker2;
     if (USA.get('points') > GER.get('points')) {
-      winner = USA;
+      winner1 = USA;
       tiebreaker1 = GER;
     }
     else {
-      winner = GER;
+      winner1 = GER;
       tiebreaker1 = USA;
     }
     if (POR.get('points') > GHA.get('points')) {
@@ -95,18 +95,18 @@ var app = Backbone.Model.extend({
 
   tieBreaker: function(team1, team2) {
     // First tiebreaker - Goal differential.
-    if (team1.get('goalDiff') > team2.get('goalDiff')) return team1.get('country');
-    if (team1.get('goalDiff') < team2.get('goalDiff')) return team2.get('country');
+    if (team1.get('goalDiff') > team2.get('goalDiff')) return team1;
+    if (team1.get('goalDiff') < team2.get('goalDiff')) return team2;
 
     // Second tiebreaker - Total goals.
-    if (team1.get('goalTotal') > team2.get('goalTotal')) return team1.get('country');
-    if (team1.get('goalTotal')< team2.get('goalTotal')) return team2.get('country');
+    if (team1.get('goalTotal') > team2.get('goalTotal')) return team1;
+    if (team1.get('goalTotal')< team2.get('goalTotal')) return team2;
 
     // Third tiebreakder - Head to head.
-    if (team1.get('victories').indexOf(team2.get('country')) !== -1) return team1.get('country');
-    if (team2.get('victories').indexOf(team1.get('country')) !== -1) return team2.get('country');
+    if (team1.get('victories').indexOf(team2.get('country')) !== -1) return team1;
+    if (team2.get('victories').indexOf(team1.get('country')) !== -1) return team2;
 
     // Coin flip if no tiebreakers met.
-    return [team1.get('country'), team2.get('country')];
+    return [team1, team2];
   }
 });
