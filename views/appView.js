@@ -39,7 +39,7 @@ var AppView = Backbone.View.extend({
 				var winner2 = winners[1][0];
 				var winner22 = winners[1][1];
 				this.$el.find('.winner1').text(winner1.get('country'));
-				this.$el.find('.winner2').text('Tie Coin Flip Between');
+				this.$el.find('.winner2').text('Tie - Coin Flip Between:');
 				this.$el.find('.imgWinner1').attr({
 					height:'100px',
 					src: winner1.get('flagURL')

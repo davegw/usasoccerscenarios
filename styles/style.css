@@ -8,18 +8,18 @@ body {
 	text-shadow: 2px 2px black;
 	font-size: 28px;
 }
+h1.text-center.text {
+	margin: 40px 0 5px 0;
+}
 
 .titleText {
 	font-weight: bold;
-	margin-top: 50px;
+	margin: 50px 0 20px 0;
+	font-size: 50px;
 }
 
 .winners {
 	padding-bottom: 35px;
-}
-
-.row {
-	margin-top: 55px;
 }
 .inline{
 	display:inline;
@@ -30,7 +30,19 @@ body {
 }
 select.center-block {
 	clear: both;
+	width: 20%;
 }
 .team-stats {
 	color: white;
+}
+.team-stats td:last-child {
+	text-align: right;
+	padding-left: 10px;
+	color: yellow;
+}
+.team-stats td {
+	font-size: 16px;
+}
+img.center-block {
+	margin-top: 10px;
 }
