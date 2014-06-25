@@ -33,24 +33,51 @@ var app = Backbone.Model.extend({
                 flagURL: 'http://www.flags.net/images/largeflags/GHAN0001.GIF',
                 curScore: undefined };
 
+    this.set('winners', []);
+
     // Create games.
     this.set('usGermany', new Games([USA, GER]));
-    this.set('portGhana', new Games(POR, GHA));
+    this.set('portGhana', new Games([POR, GHA]));
 
     this.get('usGermany').on('scoreUpdate', function() {
-      if (this.get('usGermany').checkGameOver() && this.get('portGhana').checkGameOver()) {
-        this.updateStandings();
-      }
+      this.checkOnGame.bind(this)();
     }, this);
 
     this.get('portGhana').on('scoreUpdate', function() {
-      if (this.get('usGermany').checkGameOver() && this.get('portGhana').checkGameOver()) {
-        this.updateStandings();
-      }
+      this.checkOnGame.bind(this)();
     }, this);
+  },
+
+  // Check to see if both games have ended and update if so.
+  checkOnGame: function() {
+    var usGermany = this.get('usGermany');
+    var portGhana = this.get('portGhana');
+    if (usGermany.checkGameOver() && portGhana.checkGameOver()) {
+      usGermany.calcWinner();
+      portGhana.calcWinner();
+      this.updateStandings();
+    }
   },
 
   updateStandings: function() {
 
+
+  },
+
+  tieBreaker: function(team1, team2) {
+    // First tiebreaker - Goal differential.
+    if (team1.get().goalDiff > team2.get().goalDiff) return team1.get('country');
+    if (team1.get().goalDiff < team2.get().goalDiff) return team2.get('country');
+
+    // Second tiebreaker - Total goals.
+    if (team1.get().goalTotal > team2.get().goalTotal) return team1.get('country');
+    if (team1.get().goalTotal < team2.get().goalTotal) return team2.get('country');
+
+    // Third tiebreakder - Head to head.
+    if (team1.get().victories.indexOf(team2.get().country)) return team1.get('country');
+    if (team2.get().victories.indexOf(team1.get().country)) return team2.get('country');
+
+    return 'coinFlip';
   }
+
 });
