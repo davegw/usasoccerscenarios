@@ -12,30 +12,31 @@ var Games = Backbone.Collection.extend({
   },
 
   calcWinner: function() {
-    var team1Score = this.at(0).get('curScore');
-    var team2Score = this.at(1).get('curScore');
+    var team1 = this.at(0);
+    var team2 = this.at(1);
 
     // Calc points and log victory.
-    if (team1Score > team2Score) {
-      this.at(0).set('points', this.at(0).get('points') + 3);
-      this.at(0).set('victories', this.at(0).get('victories')[this.at(1).get('country')] = true);
+    if (team1.get('curScore') > team2.get('curScore')) {
+      team1.set('points', (team1.get('points') + 3));
+      team1.set('victories', team1.get('victories').concat(team2.get('country')) );
     }
-    else if (team1Score < team2Score) {
-      this.at(1).set('points', this.at(1).get('points') + 3);
-      this.at(1).set('victories', this.at(1).get('victories')[this.at(0).get('country')] = true);
+    else if (team1.get('curScore') < team2.get('curScore')) {
+      team2.set('points', (team2.get('points') + 3));
+      team2.set('victories', team2.get('victories').concat(team1.get('country')));
     }
     else {
-      this.at(0).set('points', this.at(0).get('points') + 1);
-      this.at(1).set('points', this.at(1).get('points') + 1);
+      team1.set('points', team1.get('points') + 1);
+      team2.set('points', team2.get('points') + 1);
     }
 
     // Set goal difference.
-    this.at(0).set('goalDif', this.at(0).get('goalDif') + team1Score - team2Score);
-    this.at(1).set('goalDif', this.at(1).get('goalDif') + team2Score - team1Score);
+    debugger;
+    team1.set('goalDiff', (team1.get('goalDiff') + team1.get('curScore') - team2.get('curScore')));
+    team2.set('goalDiff', (team2.get('goalDiff') + team2.get('curScore') - team1.get('curScore')));
 
     // Set goal totals.
     this.forEach(function(team) {
       team.set('goalTotal', (team.get('goalTotal') + team.get('curScore')));
     });
   }
-})
+});
