@@ -1,16 +1,14 @@
 var GameView = Backbone.View.extend({
 
-	className: "game row",
+	className: "col-md-3",
 
-	template:    '<div class = "col-md-3">
-                <br>
-                <br>',
-
-
+	template:    '<br><br>',
 
 	render: function(){
-		$el.find('div').append(this.collection.map(function(team){
+		this.$el.append(this.template);
+		this.$el.append(this.collection.map(function(team){
 			return new TeamView({model:team}).render();
 		}))
+		return this.$el;
 	}
 });
