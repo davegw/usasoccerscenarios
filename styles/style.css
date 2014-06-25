@@ -11,5 +11,14 @@ body {
 
 .titleText {
 	font-weight: bold;
+	margin-top: 50px;
+}
+
+.winners {
+	padding-bottom: 35px;
+}
+
+.row {
+	margin-top: 55px;
 }
 //check out chosen
