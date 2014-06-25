@@ -1,4 +1,4 @@
-var Game = Backbone.collection.extend({
+var Games = Backbone.Collection.extend({
 	model: Team,
 
   checkGameOver: function() {
@@ -15,7 +15,7 @@ var Game = Backbone.collection.extend({
     var team1Score = this.at(0).get('curScore');
     var team2Score = this.at(1).get('curScore');
 
-    // Calc points.
+    // Calc points and log victory.
     if (team1Score > team2Score) {
       this.at(0).set('points', this.at(0).get('points') + 3);
       this.at(0).set('victories', this.at(0).get('victories')[this.at(1).get('country')] = true);
@@ -33,6 +33,7 @@ var Game = Backbone.collection.extend({
     this.at(0).set('goalDif', this.at(0).get('goalDif') + team1Score - team2Score);
     this.at(1).set('goalDif', this.at(1).get('goalDif') + team2Score - team1Score);
 
+    // Set goal totals.
     this.forEach(function(team) {
       team.set('goalTotal', (team.get('goalTotal') + team.get('curScore')));
     });
