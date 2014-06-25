@@ -2,8 +2,7 @@ var Games = Backbone.Collection.extend({
 	model: Team,
 
   checkGameOver: function() {
-    if (this.at(0).get('curScore') && this.at(1).get('curScore')) {
-      this.calcWinner();
+    if (this.at(0).get('curScore') !== undefined && this.at(1).get('curScore') !== undefined) {
       return true;
     }
     else {

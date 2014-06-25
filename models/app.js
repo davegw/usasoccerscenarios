@@ -66,8 +66,8 @@ var app = Backbone.Model.extend({
     var GHA = this.get('portGhana').at(1);
 
     // USA and GER advance on ties.
-    if (USA.get('points') === GER.get('points')) return this.set('winners', [USA.get('country'), GER.get('country')]);
-    if (POR.get('points') === GHA.get('points')) return this.set('winners', [USA.get('country'), GER.get('country')]);
+    if (USA.get('points') === GER.get('points')) return this.set('winners', [USA, GER]);
+    if (POR.get('points') === GHA.get('points')) return this.set('winners', [USA, GER]);
 
     // Otherwise compute tiebreaker.
     var winner1;
@@ -75,38 +75,38 @@ var app = Backbone.Model.extend({
     var tiebreaker1;
     var tiebreaker2;
     if (USA.get('points') > GER.get('points')) {
-      winner = USA.get('country');
+      winner = USA;
       tiebreaker1 = GER;
     }
     else {
-      winner = GER.get('country');
+      winner = GER;
       tiebreaker1 = USA;
     }
     if (POR.get('points') > GHA.get('points')) {
-      tiebreaker2 = POR.get('country');
+      tiebreaker2 = POR;
     }
     else {
-      tiebreaker2 = GHA.get('country');
+      tiebreaker2 = GHA;
     }
 
-    winner2 = tieBreaker(tiebreaker1, tiebreaker2);
+    winner2 = this.tieBreaker(tiebreaker1, tiebreaker2);
     return this.set('winners', [winner1, winner2]);
   },
 
   tieBreaker: function(team1, team2) {
     // First tiebreaker - Goal differential.
-    if (team1.get().goalDiff > team2.get().goalDiff) return team1.get('country');
-    if (team1.get().goalDiff < team2.get().goalDiff) return team2.get('country');
+    if (team1.get('goalDiff') > team2.get('goalDiff')) return team1.get('country');
+    if (team1.get('goalDiff') < team2.get('goalDiff')) return team2.get('country');
 
     // Second tiebreaker - Total goals.
-    if (team1.get().goalTotal > team2.get().goalTotal) return team1.get('country');
-    if (team1.get().goalTotal < team2.get().goalTotal) return team2.get('country');
+    if (team1.get('goalTotal') > team2.get('goalTotal')) return team1.get('country');
+    if (team1.get('goalTotal')< team2.get('goalTotal')) return team2.get('country');
 
     // Third tiebreakder - Head to head.
-    if (team1.get().victories.indexOf(team2.get().country)) return team1.get('country');
-    if (team2.get().victories.indexOf(team1.get().country)) return team2.get('country');
+    if (team1.get('victories').indexOf(team2.get('country')) !== -1) return team1.get('country');
+    if (team2.get('victories').indexOf(team1.get('country')) !== -1) return team2.get('country');
 
     // Coin flip if no tiebreakers met.
-    return [team1, team2];
+    return [team1.get('country'), team2.get('country')];
   }
 });
