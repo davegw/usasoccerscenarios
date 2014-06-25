@@ -2,7 +2,7 @@ var AppView = Backbone.View.extend({
 
 	className: 'appView',
 
-	startingHTML:'<h1 class="text-center titleText">US Soccer Outcome Simulator</h1><br><div class="row"></div>',
+	startingHTML:'<h1 class="text-center titleText">World Cup Outcome Simulator</h1><br><div class="row"></div>',
 
 	template: '<div class = "winners col-md-6"><h1 class="text-center winner1 text"></h1><img class="center-block imgWinner1"><h1 class="text-center winner2 text"></h1><div class="center-block tie"><img class="center-block imgWinner21 inline"><img class="center-block imgWinner22 inline"></div></div>',
 
@@ -39,7 +39,7 @@ var AppView = Backbone.View.extend({
 				var winner2 = winners[1][0];
 				var winner22 = winners[1][1];
 				this.$el.find('.winner1').text(winner1.get('country'));
-				this.$el.find('.winner2').text('Tie-Breaker');
+				this.$el.find('.winner2').text('Tie Coin Flip Between');
 				this.$el.find('.imgWinner1').attr({
 					height:'100px',
 					src: winner1.get('flagURL')
