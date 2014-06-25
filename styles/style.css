@@ -21,4 +21,10 @@ body {
 .row {
 	margin-top: 55px;
 }
+select.center-block {
+	clear: both;
+}
+.team-stats {
+	color: white;
+}
 //check out chosen
