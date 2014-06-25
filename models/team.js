@@ -8,4 +8,4 @@ var Team = Backbone.Model.extend({
     this.trigger('scoreUpdate', this);
   }
 
-})
+});
