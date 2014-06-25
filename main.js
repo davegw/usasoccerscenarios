@@ -5,7 +5,7 @@ var usGermany = [{
   goalTotal: 4,
   victories: {'Ghana': true},
   flagURL: '',
-  curScore: 0
+  curScore: undefined
 }, 
 { country: 'Germany',
   points: 4,
@@ -13,7 +13,7 @@ var usGermany = [{
   goalTotal: 6,
   victories: {'Portugal': true},
   flagURL: '',
-  curScore: 0
+  curScore: undefined
 }];
 
 var portGhana = [{
@@ -23,7 +23,7 @@ var portGhana = [{
   goalTotal: 2,
   victories: {},
   flagURL: '',
-  curScore: 0
+  curScore: undefined
 }, 
 { country: 'Ghana',
   points: 1,
@@ -31,7 +31,7 @@ var portGhana = [{
   goalTotal: 3,
   victories: {},
   flagURL: '',
-  curScore: 0}
+  curScore: undefined}
 ];
 
-new app(usGermany, portGhana);
+// new app(usGermany, portGhana);

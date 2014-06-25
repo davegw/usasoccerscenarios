@@ -4,11 +4,19 @@ var app = Backbone.Model.extend({
     this.set('portGhana', new Games(game2));
 
     this.get('usGermany').on('scoreUpdate', function() {
-      this.get('usGermany').checkGameOver();
+      if (this.get('usGermany').checkGameOver() && this.get('portGhana').checkGameOver()) {
+        this.updateStandings();
+      }
     }, this);
 
     this.get('portGhana').on('scoreUpdate', function() {
-      this.get('portGhana').checkGameOver();
+      if (this.get('usGermany').checkGameOver() && this.get('portGhana').checkGameOver()) {
+        this.updateStandings();
+      }
     }, this);
+  },
+
+  updateStandings: function() {
+
   }
 });
