@@ -1,10 +1,10 @@
 var TeamView = Backbone.View.extend({
 
-	className: 'team col-md-6'
+	className: 'team'
 
 	template: _.template(
 							 '<h1 class="text-center"><%= country %></h1>
-                <img class="center-block" height="100px" src="http://www.flags.net/images/largeflags/UNST0001.GIF">
+                <img class="center-block" height="100px" src=<%= flagURL %>>
                 <br>
                 <select class="center-block">
                   <option></option> 
@@ -18,12 +18,15 @@ var TeamView = Backbone.View.extend({
                   <option value="4">8</option>
                   <option value="4">9</option>
                   <option value="4">10</option>
-                </select>
-            </div>')
+                </select>')
 
-	initialize: function(){
-
-
+	events: {
+		'onselect': function(){
+			var score = this.$('select option:selected').text();
+			this.model.updateScore(score);
+		}
+	}
 
 	render: function(){
+		return this.$el.html(this.template(this.model.attributes));
 })
