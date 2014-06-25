@@ -4,7 +4,7 @@ var AppView = Backbone.View.extend({
 
 	startingHTML:'<h1 class="text-center titleText">World Cup Outcome Simulator</h1><br><div class="row"></div>',
 
-	template: '<div class = "winners col-md-6"><h1 class="text-center winner1 text"></h1><img class="center-block imgWinner1"><h1 class="text-center winner2 text"></h1><div class="center-block tie"><img class="center-block imgWinner21 inline"><img class="center-block imgWinner22 inline"></div></div>',
+	template: '<div class = "winners col-md-4"><h1 class="text-center winner1 text"></h1><img class="center-block imgWinner1"><h1 class="text-center winner2 text"></h1><div class="center-block tie"><img class="center-block imgWinner21 inline"><img class="center-block imgWinner22 inline"></div></div>',
 
 	initialize: function(){
 		this.usGermany = new GameView({collection: this.model.get('usGermany')});
