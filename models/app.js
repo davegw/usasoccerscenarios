@@ -60,8 +60,37 @@ var app = Backbone.Model.extend({
   },
 
   updateStandings: function() {
+    var USA = this.get('usGermany').at(0);
+    var GER = this.get('usGermany').at(1);
+    var POR = this.get('portGhana').at(0);
+    var GHA = this.get('portGhana').at(1);
 
+    // USA and GER advance on ties.
+    if (USA.get('points') === GER.get('points')) return this.set('winners', [USA.get('country'), GER.get('country')]);
+    if (POR.get('points') === GHA.get('points')) return this.set('winners', [USA.get('country'), GER.get('country')]);
 
+    // Otherwise compute tiebreaker.
+    var winner1;
+    var winner2;
+    var tiebreaker1;
+    var tiebreaker2;
+    if (USA.get('points') > GER.get('points')) {
+      winner = USA.get('country');
+      tiebreaker1 = GER;
+    }
+    else {
+      winner = GER.get('country');
+      tiebreaker1 = USA;
+    }
+    if (POR.get('points') > GHA.get('points')) {
+      tiebreaker2 = POR.get('country');
+    }
+    else {
+      tiebreaker2 = GHA.get('country');
+    }
+
+    winner2 = tieBreaker(tiebreaker1, tiebreaker2);
+    return this.set('winners', [winner1, winner2]);
   },
 
   tieBreaker: function(team1, team2) {
@@ -77,7 +106,7 @@ var app = Backbone.Model.extend({
     if (team1.get().victories.indexOf(team2.get().country)) return team1.get('country');
     if (team2.get().victories.indexOf(team1.get().country)) return team2.get('country');
 
-    return 'coinFlip';
+    // Coin flip if no tiebreakers met.
+    return [team1, team2];
   }
-
 });
