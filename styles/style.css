@@ -1,5 +1,5 @@
 body {
-	background-image:url('http://wallpaperfocus.com/wp-content/uploads/2013/12/world-cup-2014-ball-brazuca-design.jpg');
+	background-image:url('../images/woldCup.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
@@ -21,10 +21,16 @@ body {
 .row {
 	margin-top: 55px;
 }
+.inline{
+	display:inline;
+	margin-left:15px;
+}
+.tie {
+	text-align: center;
+}
 select.center-block {
 	clear: both;
 }
 .team-stats {
 	color: white;
 }
-//check out chosen
