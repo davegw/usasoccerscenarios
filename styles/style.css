@@ -6,6 +6,9 @@ body {
 .appView {
 	position: relative;
 }
+#main-row {
+	margin-bottom: 80px;
+}
 .text {
 	color:white;
 	text-shadow: 2px 2px black;
@@ -14,7 +17,6 @@ body {
 h1.text-center.text {
 	margin: 40px 0 5px 0;
 }
-
 .titleText {
 	font-weight: bold;
 	color:white;

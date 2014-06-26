@@ -2,7 +2,7 @@ var AppView = Backbone.View.extend({
 
 	className: 'appView',
 
-	startingHTML:'<h1 class="text-center titleText">World Cup Outcome Simulator</h1><br><div class="row"></div>',
+	startingHTML:'<h1 class="text-center titleText">World Cup Outcome Simulator</h1><br><div id="main-row" class="row"></div>',
 
 	template: '<div class = "winners col-sm-4"><h1 class="text-center winner1 text"></h1><img class="center-block imgWinner1"><h1 class="text-center winner2 text"></h1><div class="center-block tie"><img class="center-block imgWinner21 inline"><img class="center-block imgWinner22 inline"></div></div>',
 
